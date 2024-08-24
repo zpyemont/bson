@@ -96,7 +96,7 @@ let hex_to_string s =
 let create_objectId v =
   if String.length v = 12 then ObjectId v
   else if String.length v = 24 then
-    try (ObjectId (hex_to_string v)) with (Failure "int_of_string") -> raise Invalid_objectId
+    raise Invalid_objectId
   else raise Invalid_objectId;;
 let create_boolean v = Boolean v;;
 let create_utc v = UTC v;;
